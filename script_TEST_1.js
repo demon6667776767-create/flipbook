@@ -165,4 +165,56 @@ function initBook() {
             $(flipbook).turn('next');
         }
     });
+
+    // Добавьте в script_TEST_1.js после инициализации книги
+
+// Сенсорные события для мобильных
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+}
+
+function handleTouchEnd(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}
+
+function handleSwipe() {
+    if (!isBookOpen) return;
+    
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            // Свайп влево - следующая страница
+            $(flipbook).turn('next');
+        } else {
+            // Свайп вправо - предыдущая страница
+            const currentPage = $(flipbook).turn('page');
+            const currentLogical = currentPage === 1 ? 0 : Math.floor((currentPage - 2) / 2) + 1;
+            if (currentLogical === 1) {
+                closeBook();
+            } else {
+                $(flipbook).turn('previous');
+            }
+        }
+    }
+}
+
+// Добавляем обработчики
+flipbook.addEventListener('touchstart', handleTouchStart, false);
+flipbook.addEventListener('touchend', handleTouchEnd, false);
+
+// Предотвращаем масштабирование при двойном тапе
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
 }

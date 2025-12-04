@@ -894,7 +894,306 @@ h1,h2,h3,h4,h5,h6,p {
       
 /*  */
 
+/* Мобильная адаптация */
+@media screen and (max-width: 768px) {
+    /* Основные стили для мобильных */
+    body {
+        padding: 10px;
+        font-size: 14px;
+    }
 
+    /* Книга */
+    .book-wrap {
+        gap: 20px;
+        min-height: auto;
+        padding: 20px 0;
+    }
+
+    .book {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .flipbook {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 840/570;
+        border-radius: 10px;
+    }
+
+    /* Обложка */
+    .page.hard.cover.p1.odd {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 3px 8px 8px 3px;
+    }
+
+    .cover.content_1.content--image.content--title {
+        padding: 20px 15px;
+    }
+
+    .cover__title.h3 {
+        font-size: 1.2rem;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+
+    .cover__date {
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    /* Изображения */
+    .section-image_1,
+    .section-image[data-v-c37f0389] {
+        width: 150px !important;
+        height: 150px !important;
+        min-width: 150px !important;
+        max-width: 150px !important;
+    }
+
+    .section-image[data-v-c37f0389] {
+        width: 280px !important;
+        height: 360px !important;
+        min-width: 280px !important;
+        max-width: 280px !important;
+    }
+
+    /* Текст */
+    .section-text__value {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+        padding-right: 10px !important;
+        max-height: 300px !important;
+    }
+
+    .content.content--text {
+        padding: 25px 20px 60px !important;
+    }
+
+    /* Декоративные элементы */
+    .decoration-text {
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+
+    .hearts-container {
+        width: 250px;
+        height: 60px;
+    }
+
+    .heart-around-text svg {
+        width: 16px !important;
+        height: 14px !important;
+    }
+
+    /* Кнопки */
+    .book__btn {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+    }
+
+    .book__btn.next {
+        right: -50px !important;
+    }
+
+    .book__btn.prev {
+        left: -50px !important;
+    }
+
+    /* Анимации */
+    .floating-element,
+    .bounce-element {
+        transform: scale(0.7);
+    }
+
+    /* Специальные стили для очень маленьких экранов */
+    @media screen and (max-width: 375px) {
+        .cover__title.h3 {
+            font-size: 1rem;
+        }
+
+        .section-image[data-v-c37f0389] {
+            width: 240px !important;
+            height: 300px !important;
+            min-width: 240px !important;
+            max-width: 240px !important;
+        }
+
+        .section-text__value {
+            font-size: 13px !important;
+        }
+
+        .book__btn {
+            width: 36px !important;
+            height: 36px !important;
+            min-width: 36px !important;
+        }
+
+        .book__btn.next {
+            right: -40px !important;
+        }
+
+        .book__btn.prev {
+            left: -40px !important;
+        }
+    }
+
+    /* Стили для горизонтальной ориентации */
+    @media screen and (max-width: 768px) and (orientation: landscape) {
+        .book-wrap {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .flipbook {
+            max-width: 500px;
+        }
+
+        .content.content--text {
+            padding: 20px 25px 50px !important;
+        }
+
+        .section-text__value {
+            max-height: 200px !important;
+        }
+    }
+
+    /* Сенсорные улучшения */
+    @media (hover: none) and (pointer: coarse) {
+        .book__btn {
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+        }
+
+        .book__btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Улучшения для свайпа */
+        .flipbook {
+            touch-action: pan-y;
+            user-select: none;
+        }
+    }
+
+    /* Убираем декоративные элементы на очень маленьких экранах */
+    @media screen and (max-width: 320px) {
+        .decoration-elements {
+            display: none;
+        }
+
+        .hearts-container {
+            display: none;
+        }
+    }
+
+    /* Адаптивные анимации */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+
+    /* Улучшения читаемости */
+    .section-text__value {
+        text-align: justify;
+        hyphens: auto;
+    }
+
+    /* Улучшенные скроллбары для мобильных */
+    .section-text__value::-webkit-scrollbar {
+        width: 3px !important;
+    }
+
+    .section-text__value::-webkit-scrollbar-thumb {
+        background-color: #2f6e5b !important;
+        border-radius: 10px !important;
+    }
+}
+
+/* Дополнительные стили для планшетов */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .book {
+        width: 700px;
+    }
+
+    .flipbook {
+        width: 700px !important;
+        height: 475px !important;
+    }
+
+    .section-image[data-v-c37f0389] {
+        width: 300px !important;
+        height: 380px !important;
+    }
+
+    .book__btn.next {
+        right: -60px !important;
+    }
+
+    .book__btn.prev {
+        left: -60px !important;
+    }
+}
+
+/* Стили для больших мобильных устройств */
+@media screen and (min-width: 414px) and (max-width: 768px) {
+    .cover__title.h3 {
+        font-size: 1.3rem;
+    }
+
+    .section-image_1,
+    .section-image_1 {
+        width: 180px !important;
+        height: 180px !important;
+    }
+
+    .section-text__value {
+        font-size: 15px !important;
+    }
+}
+
+/* Фикс для iPhone X и подобных с вырезом */
+@supports (padding-top: env(safe-area-inset-top)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+}
+
+/* Улучшения производительности на мобильных */
+@media screen and (max-width: 768px) {
+    .flipbook .page {
+        will-change: transform;
+    }
+
+    .book__btn {
+        will-change: transform;
+    }
+
+    /* Оптимизация теней */
+    .page.hard.cover.p1.odd {
+        box-shadow: 
+            0 0 15px rgba(0, 0, 0, 0.4),
+            -8px 0 10px -3px rgba(0, 0, 0, 0.3),
+            inset 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-image_1,
+    .section-image[data-v-c37f0389] {
+        box-shadow: 
+            0 5px 15px rgba(0,0,0,0.3),
+            inset 0 0 10px rgba(255,215,0,0.2);
+    }
+}
 
 
 
