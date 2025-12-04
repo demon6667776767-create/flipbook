@@ -3,1048 +3,708 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BookSphere — Объёмная книга</title>
     <link rel="stylesheet" href="style_Chistiy.css">
     <link rel="stylesheet" href="style_zvezdi.css">
-    <link rel="stylesheet" href="style_zvezdi_foto.css">
-    <link rel="stylesheet" href="style_mobile.css">
-
     <!-- Подключаем jQuery ОБЯЗАТЕЛЬНО -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Подключаем turn.js -->
-
+    <script src="https://cdn.jsdelivr.net/npm/turn.js@4.1.0/turn.min.js"></script>
     <script src="turn.min.js"></script>
     
 </head>
 
     <body>
-        <!-- КОНТЕЙНЕР ДЛЯ ВСЕХ КНИГ -->
-        <div class="book-container">
-            <!--Закрытая книга _Обложка (начальная видимая часть)-->
-            <div id="closed-book" class="book-wrap active" data-book-type="closed">
-                <div data-v-58fb75c5="" class="book">
-                    <div data-v-58fb75c5="" class="flipbook" style="position: relative; width: 420px; height: 570px; transform: translate3d(0px, 0px, 0px);">
-                        <div class="page-wrapper" page="1" style="position: absolute; overflow: visible; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27; perspective-origin: 0% 50%;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: 54; transform-style: preserve-3d; backface-visibility: hidden; width: 420px; height: 570px; transform-origin: 0% 50%;">
-                                <div data-v-58fb75c5="" class="page hard cover p1 odd" style="float: left; width: 420px; height: 570px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <img data-v-58fb75c5="" class="page__background cover" alt="">
+        <!--Закрытая книга _Обложка (начальная видимая часть)-->
+        <div data-v-58fb75c5="" class="book-wrap">
+            <div data-v-58fb75c5="" class="book">
+                <div data-v-58fb75c5="" class="flipbook" style="position: relative; width: 420px; height: 570px; transform: translate3d(0px, 0px, 0px);">
+                    <div class="page-wrapper" page="1" style="position: absolute; overflow: visible; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27; perspective-origin: 0% 50%;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: 54; transform-style: preserve-3d; backface-visibility: hidden; width: 420px; height: 570px; transform-origin: 0% 50%;">
+                            <div data-v-58fb75c5="" class="page hard cover p1 odd" style="float: left; width: 420px; height: 570px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <img data-v-58fb75c5="" class="page__background cover" alt="">
+                                
+                                <!-- УСИЛЕННЫЙ блестящий эффект -->
+                                <div class="cover-gloss-overlay"></div>
+                                <div class="gold-border"></div>
+                                
+                                <!-- Декоративные элементы -->
+                                <div class="decoration-elements">
+                                    <!-- Воздушные шарики -->
+                                    <div class="floating-element" style="top: 10%; left: 10%;">
+                                        <svg width="45" height="60" viewBox="0 0 45 60">
+                                            <path d="M22.5,5 C28,5 32,10 32,15 C32,20 28,25 22.5,25 C17,25 13,20 13,15 C13,10 17,5 22.5,5 Z" 
+                                                fill="#FF6B6B"/>
+                                            <path d="M22.5,25 L22.5,45" stroke="#FFD700" stroke-width="2"/>
+                                            <path d="M20,45 L25,45" stroke="#FFD700" stroke-width="2"/>
+                                        </svg>
+                                    </div>
                                     
-                                    <!-- УСИЛЕННЫЙ блестящий эффект -->
-                                    <div class="cover-gloss-overlay"></div>
-                                    <div class="gold-border"></div>
+                                    <!-- Подарочная коробка -->
+                                    <div class="bounce-element" style="top: 12%; right: 12%;">
+                                        <svg width="50" height="45" viewBox="0 0 50 45">
+                                            <!-- Основная коробка -->
+                                            <rect x="12" y="15" width="26" height="25" fill="#4ECDC4" stroke="#2BA89A" stroke-width="1"/>
+                                            <!-- Крышка -->
+                                            <rect x="10" y="12" width="30" height="8" fill="#FFD700" stroke="#E6B800" stroke-width="1"/>
+                                            <!-- Лента вертикальная -->
+                                            <rect x="23" y="12" width="4" height="28" fill="#FF6B6B" stroke="#E55A5A" stroke-width="1"/>
+                                            <!-- Лента горизонтальная -->
+                                            <rect x="10" y="25" width="30" height="4" fill="#FF6B6B" stroke="#E55A5A" stroke-width="1"/>
+                                            <!-- Бант -->
+                                            <path d="M23,12 C25,8 28,10 27,12 C29,14 25,16 23,12 Z" fill="#FF6B6B"/>
+                                            <path d="M27,12 C29,8 32,10 31,12 C33,14 29,16 27,12 Z" fill="#FF6B6B"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <div data-v-58fb75c5="" class="cover content_1 content--image content--title">
+                                    <p data-v-58fb75c5="" class="cover__title h3">
+                                        <span data-v-58fb75c5="">Праздничное поздравление Виктории с днём рождения</span>
+                                    </p>
                                     
-                                    <!-- Декоративные элементы -->
-                                    <div class="decoration-elements">
-                                        <!-- Воздушные шарики -->
-                                        <div class="floating-element" style="top: 10%; left: 10%;">
-                                            <svg width="45" height="60" viewBox="0 0 45 60">
-                                                <path d="M22.5,5 C28,5 32,10 32,15 C32,20 28,25 22.5,25 C17,25 13,20 13,15 C13,10 17,5 22.5,5 Z" 
-                                                    fill="#FF6B6B"/>
-                                                <path d="M22.5,25 L22.5,45" stroke="#FFD700" stroke-width="2"/>
-                                                <path d="M20,45 L25,45" stroke="#FFD700" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        
-                                        <!-- Подарочная коробка -->
-                                        <div class="bounce-element" style="top: 12%; right: 12%;">
-                                            <svg width="50" height="45" viewBox="0 0 50 45">
-                                                <!-- Основная коробка -->
-                                                <rect x="12" y="15" width="26" height="25" fill="#4ECDC4" stroke="#2BA89A" stroke-width="1"/>
-                                                <!-- Крышка -->
-                                                <rect x="10" y="12" width="30" height="8" fill="#FFD700" stroke="#E6B800" stroke-width="1"/>
-                                                <!-- Лента вертикальная -->
-                                                <rect x="23" y="12" width="4" height="28" fill="#FF6B6B" stroke="#E55A5A" stroke-width="1"/>
-                                                <!-- Лента горизонтальная -->
-                                                <rect x="10" y="25" width="30" height="4" fill="#FF6B6B" stroke="#E55A5A" stroke-width="1"/>
-                                                <!-- Бант -->
-                                                <path d="M23,12 C25,8 28,10 27,12 C29,14 25,16 23,12 Z" fill="#FF6B6B"/>
-                                                <path d="M27,12 C29,8 32,10 31,12 C33,14 29,16 27,12 Z" fill="#FF6B6B"/>
-                                            </svg>
+                                    <div data-v-58fb75c5="" class="cover-editing__images_1">
+                                        <div data-v-c37f0389="" class="section-images">
+                                            <div data-v-c37f0389="" class="section-image_1">
+                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998.jpg" alt="" class="section-image__img">
+                                            </div>
                                         </div>
                                     </div>
                                     
-                                    <div data-v-58fb75c5="" class="cover content_1 content--image content--title">
-                                        <p data-v-58fb75c5="" class="cover__title h3">
-                                            <span data-v-58fb75c5="">Праздничное поздравление Виктории с днём рождения</span>
-                                        </p>
-                                        
-                                        <div data-v-58fb75c5="" class="cover-editing__images_1">
-                                            <div data-v-c37f0389="" class="section-images">
-                                                <div data-v-c37f0389="" class="section-image_1">
-                                                    <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998.jpg" alt="" class="section-image__img">
-                                                </div>
+                                    <!-- Текст с сердечками - ЕДИНАЯ ЦВЕТОВАЯ ГАММА -->
+                                    <div class="text-section">
+                                        <div class="hearts-container">
+                                            <!-- Верхний ряд сердечек -->
+                                            <div class="heart-around-text" style="top: -25px; left: 20px; animation-delay: 0s;">
+                                                <svg width="24" height="22" viewBox="0 0 24 22">
+                                                    <path d="M12,3 C15,-2 23,1 23,7 C23,12 15,17 12,22 C9,17 1,12 1,7 C1,1 9,-2 12,3 Z" 
+                                                        fill="#FFD700"/><!-- Золотой -->
+                                                </svg>
                                             </div>
-                                        </div>
-                                        
-                                        <!-- Текст с сердечками - ЕДИНАЯ ЦВЕТОВАЯ ГАММА -->
-                                        <div class="text-section">
-                                            <div class="hearts-container">
-                                                <!-- Верхний ряд сердечек -->
-                                                <div class="heart-around-text" style="top: -25px; left: 20px; animation-delay: 0s;">
-                                                    <svg width="24" height="22" viewBox="0 0 24 22">
-                                                        <path d="M12,3 C15,-2 23,1 23,7 C23,12 15,17 12,22 C9,17 1,12 1,7 C1,1 9,-2 12,3 Z" 
-                                                            fill="#FFD700"/><!-- Золотой -->
-                                                    </svg>
-                                                </div>
-                                                <div class="heart-around-text" style="top: -20px; left: 50%; transform: translateX(-50%); animation-delay: 0.3s;">
-                                                    <svg width="20" height="18" viewBox="0 0 20 18">
-                                                        <path d="M10,3 C12,-1 18,1 18,6 C18,10 12,13 10,18 C8,13 2,10 2,6 C2,1 8,-1 10,3 Z" 
-                                                            fill="#4ECDC4"/><!-- Бирюзовый -->
-                                                    </svg>
-                                                </div>
-                                                <div class="heart-around-text" style="top: -25px; right: 20px; animation-delay: 0.6s;">
-                                                    <svg width="22" height="20" viewBox="0 0 22 20">
-                                                        <path d="M11,3 C13,-1 20,1 20,6 C20,10 13,14 11,20 C9,14 2,10 2,6 C2,1 9,-1 11,3 Z" 
-                                                            fill="#FF6B6B"/><!-- Красный -->
-                                                    </svg>
-                                                </div>
-                                                
-                                                <!-- Левый ряд сердечек -->
-                                                <div class="heart-around-text" style="top: 15px; left: 0px; animation-delay: 0.9s;">
-                                                    <svg width="18" height="16" viewBox="0 0 18 16">
-                                                        <path d="M9,2 C11,-1 16,1 16,5 C16,9 11,12 9,16 C7,12 2,9 2,5 C2,1 7,-1 9,2 Z" 
-                                                            fill="#FF69B4"/><!-- Розовый -->
-                                                    </svg>
-                                                </div>
-                                                <div class="heart-around-text" style="top: 50%; left: 5px; transform: translateY(-50%); animation-delay: 1.2s;">
-                                                    <svg width="20" height="18" viewBox="0 0 20 18">
-                                                        <path d="M10,3 C12,-1 18,1 18,6 C18,10 12,13 10,18 C8,13 2,10 2,6 C2,1 8,-1 10,3 Z" 
-                                                            fill="#FFD700"/><!-- Золотой -->
-                                                    </svg>
-                                                </div>
-                                                <div class="heart-around-text" style="bottom: 15px; left: 0px; animation-delay: 1.5s;">
-                                                    <svg width="16" height="14" viewBox="0 0 16 14">
-                                                        <path d="M8,2 C10,-1 14,1 14,5 C14,8 10,11 8,14 C6,11 2,8 2,5 C2,1 6,-1 8,2 Z" 
-                                                            fill="#4ECDC4"/><!-- Бирюзовый -->
-                                                    </svg>
-                                                </div>
-                                                
-                                                <!-- Правый ряд сердечек -->
-                                            <div class="heart-around-text" style="top: 15px; right: 0px; animation-delay: 1.8s;">
-                                                <svg width="18" height="16" viewBox="0 0 18 16">
-                                                    <path d="M9,2 C11,-1 16,1 16,5 C16,9 11,12 9,16 C7,12 2,9 2,5 C2,1 7,-1 9,2 Z" 
+                                            <div class="heart-around-text" style="top: -20px; left: 50%; transform: translateX(-50%); animation-delay: 0.3s;">
+                                                <svg width="20" height="18" viewBox="0 0 20 18">
+                                                    <path d="M10,3 C12,-1 18,1 18,6 C18,10 12,13 10,18 C8,13 2,10 2,6 C2,1 8,-1 10,3 Z" 
                                                         fill="#4ECDC4"/><!-- Бирюзовый -->
                                                 </svg>
                                             </div>
-                                            <div class="heart-around-text" style="top: 50%; right: 5px; transform: translateY(-50%); animation-delay: 2.1s;">
+                                            <div class="heart-around-text" style="top: -25px; right: 20px; animation-delay: 0.6s;">
                                                 <svg width="22" height="20" viewBox="0 0 22 20">
                                                     <path d="M11,3 C13,-1 20,1 20,6 C20,10 13,14 11,20 C9,14 2,10 2,6 C2,1 9,-1 11,3 Z" 
-                                                        fill="#4ECDC4"/><!-- Бирюзовый -->
+                                                        fill="#FF6B6B"/><!-- Красный -->
                                                 </svg>
                                             </div>
-                                            <div class="heart-around-text" style="bottom: 15px; right: 0px; animation-delay: 2.4s;">
-                                                <svg width="16" height="14" viewBox="0 0 16 14">
-                                                    <path d="M8,2 C10,-1 14,1 14,5 C14,8 10,11 8,14 C6,11 2,8 2,5 C2,1 6,-1 8,2 Z" 
+                                            
+                                            <!-- Левый ряд сердечек -->
+                                            <div class="heart-around-text" style="top: 15px; left: 0px; animation-delay: 0.9s;">
+                                                <svg width="18" height="16" viewBox="0 0 18 16">
+                                                    <path d="M9,2 C11,-1 16,1 16,5 C16,9 11,12 9,16 C7,12 2,9 2,5 C2,1 7,-1 9,2 Z" 
                                                         fill="#FF69B4"/><!-- Розовый -->
                                                 </svg>
                                             </div>
-                                                
-                                                <!-- Нижний ряд сердечек -->
-                                                <div class="heart-around-text" style="bottom: -20px; left: 30px; animation-delay: 2.7s;">
-                                                    <svg width="20" height="18" viewBox="0 0 20 18">
-                                                        <path d="M10,3 C12,-1 18,1 18,6 C18,10 12,13 10,18 C8,13 2,10 2,6 C2,1 8,-1 10,3 Z" 
-                                                            fill="#4ECDC4"/><!-- Бирюзовый -->
-                                                    </svg>
-                                                </div>
-                                                <div class="heart-around-text" style="bottom: -25px; left: 50%; transform: translateX(-50%); animation-delay: 3s;">
-                                                    <svg width="24" height="22" viewBox="0 0 24 22">
-                                                        <path d="M12,3 C15,-2 23,1 23,7 C23,12 15,17 12,22 C9,17 1,12 1,7 C1,1 9,-2 12,3 Z" 
-                                                            fill="#FF6B6B"/><!-- Красный -->
-                                                    </svg>
-                                                </div>
-                                                <div class="heart-around-text" style="bottom: -20px; right: 30px; animation-delay: 3.3s;">
-                                                    <svg width="18" height="16" viewBox="0 0 18 16">
-                                                        <path d="M9,2 C11,-1 16,1 16,5 C16,9 11,12 9,16 C7,12 2,9 2,5 C2,1 7,-1 9,2 Z" 
-                                                            fill="#FF69B4"/><!-- Розовый -->
-                                                    </svg>
-                                                </div>
+                                            <div class="heart-around-text" style="top: 50%; left: 5px; transform: translateY(-50%); animation-delay: 1.2s;">
+                                                <svg width="20" height="18" viewBox="0 0 20 18">
+                                                    <path d="M10,3 C12,-1 18,1 18,6 C18,10 12,13 10,18 C8,13 2,10 2,6 C2,1 8,-1 10,3 Z" 
+                                                        fill="#FFD700"/><!-- Золотой -->
+                                                </svg>
+                                            </div>
+                                            <div class="heart-around-text" style="bottom: 15px; left: 0px; animation-delay: 1.5s;">
+                                                <svg width="16" height="14" viewBox="0 0 16 14">
+                                                    <path d="M8,2 C10,-1 14,1 14,5 C14,8 10,11 8,14 C6,11 2,8 2,5 C2,1 6,-1 8,2 Z" 
+                                                        fill="#4ECDC4"/><!-- Бирюзовый -->
+                                                </svg>
                                             </div>
                                             
-                                            <div class="decoration-text">
-                                                Пусть каждый твой день будет праздником!
+                                            <!-- Правый ряд сердечек -->
+                                        <div class="heart-around-text" style="top: 15px; right: 0px; animation-delay: 1.8s;">
+                                            <svg width="18" height="16" viewBox="0 0 18 16">
+                                                <path d="M9,2 C11,-1 16,1 16,5 C16,9 11,12 9,16 C7,12 2,9 2,5 C2,1 7,-1 9,2 Z" 
+                                                      fill="#4ECDC4"/><!-- Бирюзовый -->
+                                            </svg>
+                                        </div>
+                                        <div class="heart-around-text" style="top: 50%; right: 5px; transform: translateY(-50%); animation-delay: 2.1s;">
+                                            <svg width="22" height="20" viewBox="0 0 22 20">
+                                                <path d="M11,3 C13,-1 20,1 20,6 C20,10 13,14 11,20 C9,14 2,10 2,6 C2,1 9,-1 11,3 Z" 
+                                                      fill="#4ECDC4"/><!-- Бирюзовый -->
+                                            </svg>
+                                        </div>
+                                        <div class="heart-around-text" style="bottom: 15px; right: 0px; animation-delay: 2.4s;">
+                                            <svg width="16" height="14" viewBox="0 0 16 14">
+                                                <path d="M8,2 C10,-1 14,1 14,5 C14,8 10,11 8,14 C6,11 2,8 2,5 C2,1 6,-1 8,2 Z" 
+                                                      fill="#FF69B4"/><!-- Розовый -->
+                                            </svg>
+                                        </div>
+                                            
+                                            <!-- Нижний ряд сердечек -->
+                                            <div class="heart-around-text" style="bottom: -20px; left: 30px; animation-delay: 2.7s;">
+                                                <svg width="20" height="18" viewBox="0 0 20 18">
+                                                    <path d="M10,3 C12,-1 18,1 18,6 C18,10 12,13 10,18 C8,13 2,10 2,6 C2,1 8,-1 10,3 Z" 
+                                                        fill="#4ECDC4"/><!-- Бирюзовый -->
+                                                </svg>
+                                            </div>
+                                            <div class="heart-around-text" style="bottom: -25px; left: 50%; transform: translateX(-50%); animation-delay: 3s;">
+                                                <svg width="24" height="22" viewBox="0 0 24 22">
+                                                    <path d="M12,3 C15,-2 23,1 23,7 C23,12 15,17 12,22 C9,17 1,12 1,7 C1,1 9,-2 12,3 Z" 
+                                                        fill="#FF6B6B"/><!-- Красный -->
+                                                </svg>
+                                            </div>
+                                            <div class="heart-around-text" style="bottom: -20px; right: 30px; animation-delay: 3.3s;">
+                                                <svg width="18" height="16" viewBox="0 0 18 16">
+                                                    <path d="M9,2 C11,-1 16,1 16,5 C16,9 11,12 9,16 C7,12 2,9 2,5 C2,1 7,-1 9,2 Z" 
+                                                        fill="#FF69B4"/><!-- Розовый -->
+                                                </svg>
                                             </div>
                                         </div>
                                         
-                                        <p data-v-58fb75c5="" class="cover__date">1 января 2025</p>
+                                        <div class="decoration-text">
+                                            Пусть каждый день будет праздником!
+                                        </div>
                                     </div>
+                                    
+                                    <p data-v-58fb75c5="" class="cover__date">1 января 2025</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button data-v-58fb75c5="" class="book__btn next wiggle light_btn back">
-                        <svg data-v-58fb75c5="" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path data-v-58fb75c5="" fill-rule="evenodd" clip-rule="evenodd" d="M12.3931 23.6095C11.8724 23.0888 11.8724 22.2446 12.3931 21.7239L18.117 16L12.3931 10.2761C11.8724 9.75544 11.8724 8.91122 12.3931 8.39052C12.9138 7.86982 13.758 7.86982 14.2787 8.39052L20.9454 15.0572C21.4661 15.5779 21.4661 16.4221 20.9454 16.9428L14.2787 23.6095C13.758 24.1302 12.9138 24.1302 12.3931 23.6095Z" fill="#B22222"></path>
-                        </svg>
-                    </button>
                 </div>
+                <button data-v-58fb75c5="" class="book__btn next wiggle light_btn back">
+                    <svg data-v-58fb75c5="" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path data-v-58fb75c5="" fill-rule="evenodd" clip-rule="evenodd" d="M12.3931 23.6095C11.8724 23.0888 11.8724 22.2446 12.3931 21.7239L18.117 16L12.3931 10.2761C11.8724 9.75544 11.8724 8.91122 12.3931 8.39052C12.9138 7.86982 13.758 7.86982 14.2787 8.39052L20.9454 15.0572C21.4661 15.5779 21.4661 16.4221 20.9454 16.9428L14.2787 23.6095C13.758 24.1302 12.9138 24.1302 12.3931 23.6095Z" fill="#B22222"></path>
+                    </svg>
+                </button>
             </div>
+        </div>
 
 
-            <!-- Открытая книга _ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-            <div id="opened-book" class="book-wrap hidden" data-book-type="opened">
-                <div data-v-58fb75c5="" class="book">
-                    <button data-v-58fb75c5="" class="book__btn prev light_btn">
-                        <svg data-v-58fb75c5="" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path data-v-58fb75c5="" fill-rule="evenodd" clip-rule="evenodd" d="M12.3931 23.6095C11.8724 23.0888 11.8724 22.2446 12.3931 21.7239L18.117 16L12.3931 10.2761C11.8724 9.75544 11.8724 8.91122 12.3931 8.39052C12.9138 7.86982 13.758 7.86982 14.2787 8.39052L20.9454 15.0572C21.4661 15.5779 21.4661 16.4221 20.9454 16.9428L14.2787 23.6095C13.758 24.1302 12.9138 24.1302 12.3931 23.6095Z" fill="#B22222"></path>
-                        </svg>
-                    </button>
-                    <img data-v-58fb75c5="" class="book__background" src="img/book.4a3d07d8.svg" alt="">
-                    <div data-v-58fb75c5="" class="flipbook" style="position: relative; width: 840px; height: 570px; transform: translate3d(0px, 0px, 0px); margin-left: 0px;">
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="shadow" style="position: absolute; top: 0px; left: 420px; overflow: hidden; z-index: auto; width: 420px; height: 570px;"></div>
-                        <div class="page-wrapper" page="2" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p2 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                В день, когда зимний ветер играет снежинками за окном, а мир готовится к предновогодней суете, 
-                                                распускается необыкновенный бутон — твой День Рождения, Виктория! <br/>
-                                                В этот особенный день, в предрассветной тишине декабрьского утра, 
-                                                когда природа преображается, облачаясь в новые оттенки, 
-                                                а атмосфера пропитывается ароматом волшебства, и всё замирает в ожидании чуда,
-                                                я от всей души спешу поздравить тебя, дорогая моя Викуся, с твоим днём!                                             
-                                                И подарить тебе не просто слова, а частичку моей души, облечённую в строки поздравления.
-                                            </p>
-                                        <!---->
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">1 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="3" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p3 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="4" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p4 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                19 декабря — это не просто дата в календаре, это день, когда звёзды сошлись особенным образом, 
-                                                подарив миру тебя — личность, чей внутренний свет способен озарять самые тёмные уголки человеческих душ.<br/>
-                                                Твоё рождение – это не просто событие, это своеобразный импульс, 
-                                                который заставляет мир вокруг тебя становиться чуточку лучше. 
-                                                Твои мысли, слова и поступки – это кирпичики, из которых строится мост между людьми, мост понимания и сочувствия. 
-                                                Ты – словно художник, рисующий яркими красками картины человеческих отношений, наполняя их теплом и светом. 
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">2 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="5" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p5 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="6" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p6 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Пусть этот день, станет отправной точкой для новых свершений и вдохновений. 
-                                                Помни, что в тебе заключен огромный потенциал, и твоё влияние на мир гораздо больше, чем ты можешь себе представить.
-                                                Не бойся мечтать, не бойся ошибаться, просто будь собой. 
-                                                Твоя уникальность – это твой самый ценный дар. 
-                                                И пусть 19 декабря всегда напоминает тебе о том, что ты особенный, любимый и невероятно ценный человек.<br/> 
-                                                Каждый день твоей жизни – это возможность сделать мир немного светлее и добрее.
-                                                Пусть каждый твой день будет наполнен радостью открытий и теплом человеческих отношений!
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">3 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="7" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p7 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="8" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p8 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Есть люди, чьё присутствие ощущается даже на расстоянии, чьи слова остаются в сердце надолго, 
-                                                как драгоценные камни в шкатулке памяти. Ты, Виктория, именно такой человек. 
-                                                Твой дар вдохновлять — это не просто умение, это искусство. 
-                                                Подобно опытному дирижёру, ты управляешь оркестром человеческих эмоций, создавая гармонию там, 
-                                                где раньше был лишь хаос.
-                                                Твои слова обладают удивительной силой – они проникают в самое сердце, 
-                                                оставляя после себя ощущение тепла и уверенности. 
-                                                Ты умеешь находить нужные слова в нужный момент, вселяя надежду даже в самые темные времена. 
-                                                Твой внутренний свет указывает путь не только тебе, но и всем, кто находиться рядом.
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">4 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="9" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p9 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="10" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p10 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Виктория, ты – воплощение своего имени, несущая победу во всём, за что берёшься. 
-                                                Пусть все цели, которые ты ставишь перед собой, покоряются твоей целеустремлённости и настойчивости. 
-                                                Помни: нет вершин, которые невозможно покорить, если идти к ним с верой в собственные силы и с огнём в сердце.
-                                                Истинная победа – это не только достижение цели, но и тот путь, который ты проходишь, 
-                                                преодолевая препятствия и учась на своих ошибках. 
-                                                Каждый шаг, каждая неудача делает тебя сильнее и мудрее. 
-                                                Не бойся падать, ведь именно после падений ты поднимаешься еще выше.
-                                                Верь в себя, свои силы и свой потенциал, и тогда ты сможешь достичь всего, чего захочешь.
-
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">5 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="11" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p11 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="12" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p12 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Твоя энергия заразительна, твой оптимизм неиссякаем. Продолжай идти по жизни с высоко поднятой головой, 
-                                                покоряя новые вершины и оставаясь при этом собой — доброй, отзывчивой и невероятно притягательной.
-                                                Пусть каждый день приносит новые краски в твою жизнь, а каждая встреча оставляет в сердце тёплый след. 
-                                                Никогда не забывай, моя дорогая Виктория, что ты – уникальная, словно снежинка, 
-                                                падающая в декабрьский вечер. 
-                                                В целом мире нет и не будет второй такой души, с твоим особым взглядом на мир, 
-                                                с твоим неповторимым смехом, с твоими мыслями и чувствами.
-                                                Твоя неповторимость – твой дар миру.
-                                                Ты заслуживаешь всего самого лучшего, и я верю, что твои мечты обязательно сбудутся.
-                                                                                            
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">6 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="13" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p13 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="14" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p14 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Твоя любовь к чтению — это не просто увлечение, это способ познания вселенной, 
-                                                расширения границ собственного сознания, возможность прожить тысячи жизней в одной.
-                                                Между страницами книг ты находишь миры, в которых живёшь параллельно с нашим.
-                                                Пусть страницы книг, дарят тебе не только знания, но и мудрость. 
-                                                Каждая прочитанная история оставляет в твоей душе тот особый след, который делает нас богаче изнутри.
-                                                Именно в книгах мы находим ответы на самые сложные вопросы, черпаем вдохновение для собственных свершений и учимся сочувствию, 
-                                                погружаясь в судьбы других людей.
-
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">7 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="15" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p15 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="16" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p16 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Продолжай открывать для себя новые книги, погружаться в захватывающие истории 
-                                                и учиться у мудрых героев.
-                                                Пусть чтение станет твоим верным спутником в путешествии по жизни, 
-                                                наполняя ее смыслом, радостью и вдохновением. 
-                                                Ведь в каждой книге заключен целый мир, готовый раскрыть свои тайны тем, кто умеет слушать.
-                                                Чем больше мы читаем, тем лучше мы понимаем мир вокруг нас и свое место в нем.
-                                                Этот год – не просто ещё один виток вокруг солнца, это новая глава в книге твоей жизни. 
-                                                Так пусть же твоя жизнь будет как самая интересная книга, которую ты пишешь сама, 
-                                                глава за главой, наполняя ее событиями, эмоциями и смыслами. 
-
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">8 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="17" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p17 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                            <div class="stars-border_1 alternating"></div>
-                                            
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="18" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p18 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Путешествия — ещё одна грань твоей многогранной личности. 
-                                                Желаю, чтобы дороги жизни вели тебя к самым удивительным местам планеты, а каждое путешествие обогащало твою душу новыми эмоциями и открытиями.
-                                                И пусть каждый рассвет приносит с собой новые возможности, а каждый закат – ощущение завершенности и благодарности за прожитый день.
-                                                Путешествия учат нас быть открытыми и толерантными, понимать и принимать культуру других народов. 
-                                                Они расширяют наш кругозор и делают нас более мудрыми и терпимыми. 
-                                                Это не просто отдых, это инвестиция в себя, в свое развитие и обогащение внутреннего мира.
-
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">9 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="19" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p19 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="20" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 26;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p20 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Пусть каждое путешествие станет для тебя не только приключением, но и уроком, 
-                                                возможностью взглянуть на свою жизнь под другим углом. 
-                                                Позволь себе увидеть мир во всем его многообразии и великолепии, 
-                                                и пусть каждое новое место оставит в твоей душе незабываемый след. 
-                                                Открывай новые горизонты, исследуй неизведанное и возвращайся домой с багажом ярких воспоминаний 
-                                                и новых осознаний.
-
-                                                
-
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">10 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <div class="page-wrapper" page="21" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 0% 100%;">
-                                <div data-v-58fb75c5="" class="page p21 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_9.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 100% 100%, -20% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="22" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p22 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                В виртуальном мире Cooking Diary ты создаёшь не просто блюда, а произведения искусства. 
-                                                Твоя страсть к этой игре — отражение твоей любви к жизни, к её вкусам и ароматам. 
-                                                Именно там, среди виртуальных кастрюль и сковородок, наши пути пересеклись.
-                                                Помнишь, как мы впервые встретились в виртуальных кухнях Cooking Diary? 
-                                                Наши блюда и разговоры, приправленные смехом и иногда – твоими «колючими»🤭 комментариями.
-                                                Да, как будто это было вчера. Сколько тогда было шуток и смеха! Именно такие моменты, полные азарта, 
-                                                стресса и, конечно же, юмора, и сделали нашу виртуальную игру такой особенной. 
-                                                Мы не просто играли, мы создавали воспоминания, делились секретами мастерства, общались, 
-                                                смеялись и поддерживали друг друга в самые сложные моменты.
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">11 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
-                        </div>
-                        <div class="page-wrapper" page="23" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p23 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border_1 alternating"></div>
-                                        
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_10.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="24" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+        <!-- Открытая книга _ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+        <div data-v-58fb75c5="" class="book-wrap">
+            <div data-v-58fb75c5="" class="book">
+                <button data-v-58fb75c5="" class="book__btn prev light_btn">
+                    <svg data-v-58fb75c5="" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path data-v-58fb75c5="" fill-rule="evenodd" clip-rule="evenodd" d="M12.3931 23.6095C11.8724 23.0888 11.8724 22.2446 12.3931 21.7239L18.117 16L12.3931 10.2761C11.8724 9.75544 11.8724 8.91122 12.3931 8.39052C12.9138 7.86982 13.758 7.86982 14.2787 8.39052L20.9454 15.0572C21.4661 15.5779 21.4661 16.4221 20.9454 16.9428L14.2787 23.6095C13.758 24.1302 12.9138 24.1302 12.3931 23.6095Z" fill="#B22222"></path>
+                    </svg>
+                </button>
+                <img data-v-58fb75c5="" class="book__background" src="img/book.4a3d07d8.svg" alt="">
+                <div data-v-58fb75c5="" class="flipbook" style="position: relative; width: 840px; height: 570px; transform: translate3d(0px, 0px, 0px); margin-left: 0px;">
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="shadow" style="position: absolute; top: 0px; left: 420px; overflow: hidden; z-index: auto; width: 420px; height: 570px;"></div>
+                    <div class="page-wrapper" page="2" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
                         <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p24 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                И хотя твоя «колючесть» – эта защитная оболочка, которую ты иногда надеваешь – 
-                                                никогда не мешает людям видеть твоё доброе сердце и светлую душу. 
-                                                В этой особенности твоего характера есть своё очарование, своя неповторимая прелесть, 
-                                                делающая общение с тобой таким живым и настоящим.
-                                                Наши виртуальные встречи в Cooking Diary стали чем-то большим, чем просто игра. 
-                                                Это было настоящее приключение, полное ярких незабываемых моментов и, конечно же, 
-                                                наше с тобой общение, которое, я уверена, останется с нами надолго в нашей памяти.
-                                                И пусть наши встречи происходят лишь в виртуальной реальности, я ценю каждую минуту, проведенную с тобой.
-                                                Спасибо тебе за то, что ты есть! 
-                                                Давай и дальше покорять новые вершины, удивлять мир своими блюдами и просто наслаждаться обществом друг друга не только в игре, 
-                                                но и в реальной жизни.
-                                                
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">12 / 17</span>
+                            <div data-v-58fb75c5="" class="page p2 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            В день, когда зимний ветер играет снежинками за окном, а мир готовится к предновогодней суете, расцветает особенный цветок — твой день рождения, Виктория. Девятнадцатое декабря — не просто дата в календаре, это день, когда звёзды сошлись особенным образом, подарив миру тебя — личность, чей внутренний свет способен озарять самые тёмные уголки человеческих душ.<br/>
+                                            В этот особенный день, когда природа расцветает новыми красками, а воздух наполняется ароматом волшебства, я хочу поздравить тебя, дорогая Виктория, с Днём рождения! И подарить тебе не просто слова, а частичку души, облечённую в строки поздравления.
+                                        </p>
+                                    <!---->
                                     </div>
+                                    <span data-v-58fb75c5="" class="page__number">1 / 12</span>
                                 </div>
                             </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
                         </div>
-                        <div class="page-wrapper" page="25" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p25 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="3" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p3 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="4" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p4 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            Виктория, твоё имя — само воплощение победы. Как художник, ты побеждаешь пустоту холста, наполняя его красками жизни. Твоя кисть танцует по полотну, оставляя следы твоей уникальной души, превращая обыденность в произведение искусства. Твой внутренний свет озаряет путь не только тебе, но и всем, кто находиться рядом. Пусть каждый твой день будет наполнен радостью открытий и теплом человеческих отношений! <br/>
+                                            Есть люди, чьё присутствие ощущается даже на расстоянии, чьи слова остаются в сердце надолго, как драгоценные камни в шкатулке памяти. Ты, Виктория, именно такой человек. Твой дар вдохновлять и вести за собой — это не просто умение, это искусство. Подобно опытному дирижёру, ты управляешь оркестром человеческих эмоций, создавая гармонию там, где раньше был лишь хаос.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">2 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="5" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p5 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="6" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p6 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            Сегодня Виктория — яркая звезда, чей свет озаряет жизнь всех, кто её окружает. Её смех по-прежнему звенит, как колокольчик, разгоняя сумерки повседневности. Она нашла свою страсть в кулинарном искусстве, став настоящим мастером в игре Cooking Diary, где её талант раскрылся во всей красе.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">3 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="7" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p7 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="8" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p8 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                           В этот особенный день хочется пожелать нашей дорогой Вике, чтобы каждый её шаг был наполнен радостью, каждое мгновение — счастьем, а каждый год жизни дарил новые возможности и открытия. Пусть её кулинарные шедевры в Cooking Diary продолжают восхищать игроков со всего мира, а реальная жизнь будет такой же насыщенной и увлекательной, как виртуальные приключения.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">4 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="9" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p9 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="10" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p10 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            Виктория, ты — настоящее сокровище, драгоценный камень, огранённый временем и опытом. Твоя доброта и отзывчивость делают мир вокруг тебя лучше. Пусть судьба будет к тебе благосклонна, как та зимняя сказка, в которую ты родилась. Пусть рядом всегда будут те, кто любит и ценит тебя такой, какая ты есть.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">5 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="11" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p11 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="12" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p12 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            Мы восхищаемся твоим умением создавать кулинарные шедевры не только в игре, но и в реальной жизни. Твои блюда — это не просто еда, это настоящие произведения искусства, наполненные любовью и заботой. Пусть твой талант продолжает расцветать, принося радость и удовольствие всем, кто имеет счастье пробовать твои творения.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">6 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="13" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p13 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="14" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p14 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            В день твоего рождения мы хотим напомнить, как много ты значишь для нас. Твоя улыбка — это луч солнца в пасмурный день, твои слова поддержки — опора в трудные минуты. Ты умеешь находить прекрасное в простых вещах и делиться этим даром с окружающими. Продолжай нести свет и тепло, ведь это делает наш мир намного лучше.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">7 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="15" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p15 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <div data-v-c37f0389="" class="section-images">
                                         <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
                                         <div class="stars-border_1 alternating"></div>
                                         
-                                        <div data-v-c37f0389="" class="section-images">
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_11.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
+                                            <!---->
                                         </div>
-                                    <!---->
                                     </div>
+                                <!---->
                                 </div>
                             </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
                         </div>
-
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="26" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p26 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                В день твоего рождения я хочу напомнить, как много ты значишь для нас. 
-                                                Твоя улыбка — это луч солнца в пасмурный день, твои слова поддержки — опора в трудные минуты. 
-                                                Продолжай нести свет и тепло, ведь это делает наш мир намного лучше.
-                                                Пусть моменты, которые ты проживаешь, остаются в памяти незабываемыми фотографиями счастья. 
-                                                Желаю тебе коллекционировать такие мгновения: искренний смех друзей, объятия близких, 
-                                                общение с интересными людьми, тихие рассветы и пламенные закаты. 
-                                                Из этих драгоценных камешков складывается мозаика полноценной жизни.
-                                                Жизнь — это калейдоскоп моментов, и я желаю, чтобы твой был самым ярким и красочным.
-
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">13 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <div class="page-wrapper" page="27" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p27 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                            <div class="stars-border_1 alternating"></div>
-                                        <div data-v-c37f0389="" class="section-images">
-                                            
-                                            
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_11.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="28" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p28 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Викуся - солнце моё, в этот зимний, твой праздничный день, когда природа готовится к волшебству, 
-                                                я посылаю тебе самые тёплые пожелания и искренние поздравления.
-                                                Я желаю, чтобы жизнь преподносила тебе только приятные сюрпризы, 
-                                                чтобы каждый твой шаг был наполнен радостью, каждое мгновение — счастьем, 
-                                                чтобы рядом были верные друзья, ценящие твою глубину и искренность, 
-                                                готовые поддержать в трудную минуту и разделить радость счастливых моментов,
-                                                а каждый год жизни дарил новые возможности и открытия.
-                                                Пусть этот новый год твоей жизни станет временем удивительных открытий и свершений! 
-                                                
-
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">14 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <div class="page-wrapper" page="29" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p29 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                            <div class="stars-border_1 alternating"></div>
-                                        <div data-v-c37f0389="" class="section-images">
-                                            
-                                            
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_11.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="30" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p30 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Желаю тебе здоровья, крепкого как алмаз и такого же драгоценного, впечатлений, ярких как палитра осеннего леса и глубоких как морская пучина. 
-                                                Пусть каждая клеточка твоего тела наполняется энергией и силой, даруя тебе возможность воплощать самые смелые замыслы.
-                                                Будь открыта миру, и он ответит тебе взаимностью, раскрывая свои самые прекрасные тайны.<br/>
-                                                Хочу пожелать тебе сохранить ту внутреннюю силу, 
-                                                которая позволяет тебе оставаться собой в любых обстоятельствах. 
-                                                Эта сила – твой компас, твоя опора, твоё сокровище. 
-                                                Береги её, как самую драгоценную жемчужину, и она никогда не подведёт тебя в жизненных штормах.
-
-                                                
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">15 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <div class="page-wrapper" page="31" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p31 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                            <div class="stars-border_1 alternating"></div>
-                                        <div data-v-c37f0389="" class="section-images">
-                                            
-                                            
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_11.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="32" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p32 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                Пусть каждое утро начинается с улыбки, а каждый вечер завершается чувством удовлетворения от прожитого дня.
-                                                Желаю тебе счастья — не мимолётного, как утренняя роса, а глубокого и постоянного, как течение великих рек. 
-                                                Пусть оно наполняет каждую клеточку твоего существа, отражается в твоих глазах, звучит в твоём смехе.
-
-                                                Пусть этот день станет началом нового, ещё более яркого и счастливого периода твоей жизни. 
-                                                И пусть на твоём пути встречаются только добрые люди, интересные книги, вдохновляющие путешествия, незабываемые впечатления, 
-                                                а жизнь будет такой же яркой и неповторимой, как ты сама!<br/>
-                                                Ты — победа, ты — свет, ты — чудо.
-    
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">16 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <div class="page-wrapper" page="33" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p33 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                            <div class="stars-border_1 alternating"></div>
-                                        <div data-v-c37f0389="" class="section-images">
-                                            
-                                            
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_11.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
-                        <div class="page-wrapper" page="34" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
-                                <div data-v-58fb75c5="" class="page p34 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
-                                    <div data-v-58fb75c5="" class="page__background prev"></div>
-                                    <div data-v-58fb75c5="" class="content content--text">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                        <div class="stars-border gold"></div>
-                                        <div class="stars-border silver"></div>
-                                        <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
-                                            <p data-v-ee0367c4="" class="section-text__value">
-                                                И пусть иногда твои «колючки» ранят немножко, я знаю, что за ними скрывается ранимая и добрая душа, способная на глубокую любовь и преданность. 
-                                                Спасибо за смех, за поддержку, за все те моменты, когда ты просто была рядом.<br/> 
-                                                С Днём Рождения, моя дорогая «колючка», и пусть все твои мечты непременно сбываются!<br/><br/><br/>
-                                                С искренними пожеланиями счастья, любви и благополучия, твой друг по кулинарным приключениям, Demon!
-                                                
-                                                
-                                            </p>
-                                        </div>
-                                        <span data-v-58fb75c5="" class="page__number">17 / 17</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-                        <div class="page-wrapper" page="35" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
-                            <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
-                                <div data-v-58fb75c5="" class="page p35 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
-                                    <div data-v-58fb75c5="" class="page__background next"></div>
-                                    <div data-v-58fb75c5="" class="content content--image">
-                                        <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
-                                            <div class="stars-border_1 alternating"></div>
-                                        <div data-v-c37f0389="" class="section-images">
-                                            
-                                            
-                                            <div data-v-c37f0389="" class="section-image">
-                                                <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_11.jpg" alt="" class="section-image__img">
-                                                <!---->
-                                            </div>
-                                        </div>
-                                    <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
-                        </div>
-
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
                     </div>
-                    <button data-v-58fb75c5="" class="book__btn next wiggle light_btn back">
-                        <svg data-v-58fb75c5="" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path data-v-58fb75c5="" fill-rule="evenodd" clip-rule="evenodd" d="M12.3931 23.6095C11.8724 23.0888 11.8724 22.2446 12.3931 21.7239L18.117 16L12.3931 10.2761C11.8724 9.75544 11.8724 8.91122 12.3931 8.39052C12.9138 7.86982 13.758 7.86982 14.2787 8.39052L20.9454 15.0572C21.4661 15.5779 21.4661 16.4221 20.9454 16.9428L14.2787 23.6095C13.758 24.1302 12.9138 24.1302 12.3931 23.6095Z" fill="#B22222"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
 
-     
-        </div> <!-- Закрываем .book-container -->    
-        
-        
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="16" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p16 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                           Пусть твоя жизнь будет наполнена яркими красками, как палитра ингредиентов в твоей любимой игре. Пусть каждый день приносит новые вкусы и ароматы, новые впечатления и эмоции. Ты заслуживаешь всего самого лучшего, и мы верим, что твои мечты обязательно сбудутся.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">8 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="17" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p17 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_8.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="18" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 26;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p18 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            Виктория, ты — настоящий пример того, как можно совмещать виртуальные увлечения с реальными достижениями. Твоя страсть к кулинарии, проявленная в Cooking Diary, вдохновляет многих. Пусть эта игра продолжает быть источником радости и творчества, а твои кулинарные эксперименты в реальной жизни всегда будут успешными.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">9 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+                    <div class="page-wrapper" page="19" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 0% 100%;">
+                            <div data-v-58fb75c5="" class="page p19 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_9.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 100% 100%, -20% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="20" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p20 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            Мы гордимся тем, что знаем тебя, и благодарны судьбе за возможность быть частью твоей жизни. Твоя энергия заразительна, твой оптимизм неиссякаем. Продолжай идти по жизни с высоко поднятой головой, покоряя новые вершины и оставаясь при этом собой — доброй, отзывчивой и невероятно талантливой.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">10 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px; background-image: -webkit-gradient(linear, 0% 100%, 120% 100%, color-stop(0.6, rgba(0, 0, 0, 0)), color-stop(0.8, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0)));"></div>
+                    </div>
+                    <div class="page-wrapper" page="21" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p21 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_10.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="22" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                       <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p22 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            В этот праздничный день мы желаем тебе, чтобы все твои начинания были успешными, чтобы рядом всегда были верные друзья и любящие близкие. Пусть твой дом будет полон смеха и радости, а сердце — любви и тепла. Ты заслуживаешь всего самого лучшего, и мы верим, что жизнь преподнесет тебе еще много приятных сюрпризов.
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">11 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+                    <div class="page-wrapper" page="23" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p23 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border_1 alternating"></div>
+                                    
+                                    <div data-v-c37f0389="" class="section-images">
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_11.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+
+                    <!-- Следующие ВНУТРЕННИЕ СТРАНИЦЫ (изначально скрыты) -->
+                    <div class="page-wrapper" page="24" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; left: 0px; right: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px; transform-origin: 100% 100%;">
+                            <div data-v-58fb75c5="" class="page p24 even" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px; transform-origin: 100% 100%;">
+                                <div data-v-58fb75c5="" class="page__background prev"></div>
+                                <div data-v-58fb75c5="" class="content content--text">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                    <div class="stars-border gold"></div>
+                                    <div class="stars-border silver"></div>
+                                    <div data-v-ee0367c4="" data-v-58fb75c5="" class="section-text" isgeneratingpage="false">
+                                        <p data-v-ee0367c4="" class="section-text__value">
+                                            С днём рождения, наша дорогая Виктория! Пусть твоя жизнь будет такой же яркой и неповторимой, как ты сама. Пусть каждый день приносит новые возможности для творчества и самореализации. Мы любим тебя и ценим каждый момент, проведённый вместе. Будь счастлива, наша кулинарная фея, и пусть все твои мечты непременно сбываются!
+                                        </p>
+                                    </div>
+                                    <span data-v-58fb75c5="" class="page__number">12 / 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+                    <div class="page-wrapper" page="25" style="position: absolute; overflow: hidden; width: 420px; height: 570px; top: 0px; right: 0px; left: auto; z-index: 27;">
+                        <div style="position: absolute; top: 0px; left: 0px; overflow: hidden; z-index: auto; width: 708px; height: 708px;">
+                            <div data-v-58fb75c5="" class="page p25 odd" style="float: left; width: 420px; height: 570px; position: absolute; inset: 0px auto auto 0px; transform-origin: 0% 100%; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px;">
+                                <div data-v-58fb75c5="" class="page__background next"></div>
+                                <div data-v-58fb75c5="" class="content content--image">
+                                    <!-- Добавьте этот код внутрь каждого div.content--text и div.content--image -->
+                                        <div class="stars-border_1 alternating"></div>
+                                    <div data-v-c37f0389="" class="section-images">
+                                        
+                                        
+                                        <div data-v-c37f0389="" class="section-image">
+                                            <img data-v-c37f0389="" src="https://nd-bfuriphont.nasledie.digital/wp-content/uploads/fairytales_files/tale_7998_11.jpg" alt="" class="section-image__img">
+                                            <!---->
+                                        </div>
+                                    </div>
+                                <!---->
+                                </div>
+                            </div>
+                        </div>
+                        <div style="top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 420px; height: 570px;"></div>
+                    </div>
+
+                </div>
+                <button data-v-58fb75c5="" class="book__btn next wiggle light_btn back">
+                    <svg data-v-58fb75c5="" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path data-v-58fb75c5="" fill-rule="evenodd" clip-rule="evenodd" d="M12.3931 23.6095C11.8724 23.0888 11.8724 22.2446 12.3931 21.7239L18.117 16L12.3931 10.2761C11.8724 9.75544 11.8724 8.91122 12.3931 8.39052C12.9138 7.86982 13.758 7.86982 14.2787 8.39052L20.9454 15.0572C21.4661 15.5779 21.4661 16.4221 20.9454 16.9428L14.2787 23.6095C13.758 24.1302 12.9138 24.1302 12.3931 23.6095Z" fill="#B22222"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
 
         <script src="script_TEST_1.js"></script>
         <script src="script_konfetti.js"></script>
+        
 
     </body>
 </html>
