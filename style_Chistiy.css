@@ -596,7 +596,7 @@ button.disabled[data-v-c37f0389] {
 
 .book[data-v-58fb75c5] {
     position: relative;
-    width: 957px;
+    width: 1300px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -640,7 +640,7 @@ button.disabled[data-v-c37f0389] {
 
 .book__background[data-v-58fb75c5] {
     position: absolute;
-    width: 957px;
+    width: 1300px;
     height: 615px;
     margin-top: 10px
 }
@@ -946,17 +946,40 @@ h1,h2,h3,h4,h5,h6,p {
     background-size: contain !important;
 }
 
-/* Для мобильных - просто центрируем */
-@media (max-width: 840px) {
-    #opened-book {
-        overflow-x: auto;
-        padding: 10px;
+
+
+/* 🔑 КРИТИЧЕСКИЙ FIX ДЛЯ turn.js В РЕЖИМЕ single */
+@media screen and (max-width: 768px) {
+    .flipbook,
+    .flipbook .page-wrapper,
+    .flipbook .page {
+        overflow: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-backface-visibility: hidden !important;
+        transform: translateZ(0) !important;
+        -webkit-transform: translateZ(0) !important;
     }
-    
-    .book[data-v-58fb75c5] {
-        width: auto !important;
-        display: flex !important;
-        justify-content: center !important;
+
+    /* Убираем любые box-shadow или outline во время анимации */
+    .flipbook .page-wrapper,
+    .flipbook .page {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Гарантируем, что страницы не выходят за границы */
+    .flipbook .page-wrapper {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Если используется perspective — сбросим */
+    .flipbook {
+        perspective: none !important;
+        -webkit-perspective: none !important;
     }
 }
 
