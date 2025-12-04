@@ -1,0 +1,32 @@
+/* ОБНОВЛЕННАЯ АДАПТАЦИЯ ДЛЯ ГОРИЗОНТАЛЬНЫХ ЭКРАНОВ */
+
+
+    
+
+    
+    /* Для iPhone в горизонтальной ориентации */
+    @media screen and (max-height: 450px) {
+        .book-wrap {
+            transform: translate(-50%, -50%) scale(0.5) !important;
+        }
+        
+        .book-wrap.active {
+            transform: translate(-50%, -50%) scale(0.5) !important;
+        }
+    }
+    
+    /* Уменьшаем кнопки */
+    .book__btn[data-v-58fb75c5] {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+    }
+    
+    .book__btn.next[data-v-58fb75c5] {
+        right: -80px !important;
+    }
+    
+    .book__btn.prev[data-v-58fb75c5] {
+        left: -80px !important;
+    }
+    

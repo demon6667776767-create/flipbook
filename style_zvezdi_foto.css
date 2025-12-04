@@ -1,0 +1,158 @@
+
+
+.page .content--image {
+    position: relative;
+    overflow: visible !important;
+}
+
+
+/* Контейнер для звезд на страницах с фото */
+.stars-border_1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+
+/* === ФОТОСТРАНИЦЫ — ЧЕРЕДОВАНИЕ ЗВЕЗД === */
+/* Чередующиеся звезды ТОЛЬКО для фотостраниц - ИСПРАВЛЕННАЯ ВЕРСИЯ */
+.page .content--image .stars-border_1.alternating::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    /* 26 звезд в последовательности: СЕРЕБРО-ЗОЛОТО-СЕРЕБРО-ЗОЛОТО... */
+    background-image:
+        /* Верхний ряд (7 звезд) - начинаем с ЗОЛОТА */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+       
+        /* Правый ряд (6 звезд) */
+       /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+
+
+        /* Нижний ряд (7 звезд) */
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+
+
+        /* Левый ряд (6 звезд) */
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+        
+        /* ЗОЛОТАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23FFEC8B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23gold)' stroke='%23B8860B' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E"),
+
+         /* СЕРЕБРЯНАЯ */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3ClinearGradient id='silver' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23A0A0A0'/%3E%3Cstop offset='50%25' stop-color='%23C0C0C0'/%3E%3Cstop offset='100%25' stop-color='%23808080'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23silver)' stroke='%23606060' stroke-width='0.7' d='M10 0L12 7H19L14 11L16 18L10 14L4 18L6 11L1 7H8Z'/%3E%3C/svg%3E");
+        
+
+    background-position:
+        /* Верхний ряд (7 звезд) */
+        0% 0%, 14.28% 0%, 28.56% 0%, 42.84% 0%, 57.12% 0%, 71.40% 0%, 85.68% 0%, 100% 0%,
+
+        /* Правый ряд (6 звезд) */
+        100% 14.28%, 100% 28.57%, 100% 42.85%, 100% 57.14%, 100% 71.42%, 100% 85.71%,
+
+        /* Нижний ряд (7 звезд) */
+        100% 100%, 85.68% 100%, 71.40% 100%, 57.12% 100%, 42.84% 100%, 28.56% 100%, 14.28% 100%, 0% 100%,
+        
+        /* Левый ряд (6 звезд) */
+        0% 85.71%, 0% 71.42%, 0% 57.14%, 0% 42.85%, 0% 28.57%, 0% 14.28%;
+
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    animation: alternatingTwinkle 2.2s ease-in-out infinite;
+    filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 3px rgba(96, 96, 96, 0.6));
+}
+
+/* Анимация для чередующихся звёзд */
+@keyframes alternatingTwinkle {
+    0%, 100% {
+        opacity: 0.9;
+        filter: 
+            drop-shadow(0 0 2px rgba(253, 253, 253, 0.6))
+            drop-shadow(0 0 3px rgba(96, 96, 96, 0.6));
+    }
+    50% {
+        opacity: 1;
+        filter: 
+            drop-shadow(0 0 4px rgb(247, 246, 246))
+            drop-shadow(0 0 5px rgba(96, 96, 96, 1))
+            brightness(1.1);
+    }
+}
+   
